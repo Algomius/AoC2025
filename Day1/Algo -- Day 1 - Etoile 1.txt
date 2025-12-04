@@ -1,0 +1,25 @@
+-- Day 1 - Etoile 1
+Variables :
+	position : entier
+	sens : caractère
+	distance : entier
+	cpt : entier
+Début
+	position <- 50
+	cpt <- 0
+	pour chaque ligne dans le fichier
+		sens <- ligne[0]
+		distance <- ligne sauf le premier caractère
+	
+		si sens = "L" alors
+			position <- (position - distance) % 100
+		sinon
+			position <- (position + distance) % 100
+		fsi
+
+		si position = 0 alors
+			cpt <- cpt + 1
+		fsi
+	fpour
+	Afficher cpt
+Fin
