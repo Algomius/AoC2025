@@ -1,0 +1,47 @@
+-- Day 2 -- Etoile 2
+
+fonction estInvalide(n : entier) : booléen
+	pattern : chaîne de caractères
+	test : booléen
+Début
+	pour l de 1 à longueur(n) // 2
+		pattern <- les l premiers chiffres de n
+		test <- Vrai
+		pour i de l à len(n) avec un pas de +l
+			si pattern est différent de n qui commence à i et qui se termine i + l
+				test <- Faux
+			Fsi
+		fpour
+		si test = Vrai alors
+			retour <- Vrai
+		fsi
+	fpour
+	retour <- Faux
+Fin
+
+
+Variables :
+	somme : entier
+	intervalle : tableau de chaîne de caractères
+	borneMin : entier
+	borneMax : entier
+	f : fichier
+	ligne : chaîne de caractères
+	milieu : entier
+Début
+	somme <- 0
+	f <- Lire
+	pour chaque ligne dans f
+		intervalle <- décomposer la ligne par ","
+		pour chaque i de intervalle
+			borneMin <- avant "-" dans i
+			borneMax <- après "-" dans i	
+			pour n de borneMin à BorneMax
+				milieu <- longueur(n) // 2					
+				si estInvalide(n) alors
+					somme += n
+				fsi
+			fpour
+		fpour 
+	fpour
+Fin

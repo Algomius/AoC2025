@@ -1,0 +1,33 @@
+-- Day 2 -- Etoile 1
+
+Variables :
+	somme : entier
+	intervalle : tableau de chaîne de caractères
+	borneMin : entier
+	borneMax : entier
+	f : fichier
+	ligne : chaîne de caractères
+	milieu : entier
+Début
+	somme <- 0
+	f <- Lire
+	pour chaque ligne dans f
+		intervalle <- décomposer la ligne par ","
+		pour chaque i de intervalle
+			borneMin <- avant "-" dans i
+			borneMax <- après "-" dans i	
+			pour n de borneMin à BorneMax
+				milieu <- longueur(n) // 2					
+				si n entre le début et le milieu = n entre le milieu et la fin alors
+					somme += n
+				fsi
+			fpour
+		fpour 
+	fpour
+Fin
+
+
+
+
+
+

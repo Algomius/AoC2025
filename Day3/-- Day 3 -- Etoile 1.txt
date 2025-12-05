@@ -1,0 +1,33 @@
+-- Day 3 -- Etoile 1
+
+Variable 
+	somme : entier
+	maxJolt : entier
+	f : fichier
+	ligne : chaîne de caractères
+	
+Début
+	somme <- 0
+	f <- Lire
+	pour chaque ligne dans f
+		maxJolt <- 0
+		pour i de 0 à longueur(ligne) - 1
+			pour j de i + 1 à longueur(ligne)
+				si maxJolt < ligne[i] + ligne[j] alors
+					maxJolt = ligne[i] + ligne[j]
+				fsi
+			fpour
+		fpour
+		somme <- somme + maxJolt 
+	fpour
+
+	Afficher somme
+Fin
+
+
+
+
+
+
+
+

@@ -1,0 +1,43 @@
+-- Day 3 -- Etoile 2
+
+Variable 
+	somme : entier
+	maxJolt : chaîne de caractères
+	f : fichier
+	ligne : chaîne de caractères
+	
+Début
+	somme <- 0
+	f <- Lire
+	pour chaque ligne dans f
+		maxJolt <- ""
+		Tant que ligne n'est pas vide
+			si maxJolt == "" alors
+				ajouter ligne[0] à maxJolt
+			sinon si dernier élément de maxJolt est plus grand ou égal à ligne[0] alors
+				si longeur(maxJolt) < 12 alors
+					ajouter ligne[0] à maxJolt
+				fsi
+			sinon
+				tant que maxJolt n'est pas vide et ligne[0] > dernier élément de maxJolt et longueur(maxJolt) + longueur(ligne) > 12
+					supprimer le dernier élément de maxJolt 
+				ftant
+
+				si longueur(maxJolt) + longueur(ligne) = 12 alors
+					ajouter ligne à maxJolt
+					ligne <- ""
+				sinon 
+					ajouter ligne[0] à maxJolt
+				fsi
+
+			fsi  
+
+
+			Supprimer le premier élément de ligne
+		Ftant
+		somme <- somme + maxJolt 
+	fpour
+
+	Afficher somme
+Fin
+
